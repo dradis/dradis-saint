@@ -1,5 +1,5 @@
-port
-severity
-class
-cve
-cvss_base_score
+evidence.port
+evidence.severity
+evidence.class
+evidence.cve
+evidence.cvss_base_score

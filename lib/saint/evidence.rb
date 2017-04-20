@@ -5,7 +5,7 @@ module Saint
     end
 
     def supported_tags
-      [ :port, :severity, :class, :cve, :cvss_base_score ]
+      [ :port, :severity, :vuln_class, :cve, :cvss_base_score ]
     end
 
     def respond_to?(method, include_private=false)
@@ -17,6 +17,10 @@ module Saint
       unless supported_tags.include?(method)
         super
         return
+      end
+
+      if method == :vuln_class
+        method = :class
       end
 
       @xml.xpath("./#{method.to_s}").first.try(:text)

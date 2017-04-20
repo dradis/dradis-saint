@@ -2,7 +2,7 @@
 Saint Host Summary
 
 #[IP Address]#
-%ipaddr%
+%host.ipaddr%
 
 #[Host Type]#
-%hosttype%
+%host.hosttype%

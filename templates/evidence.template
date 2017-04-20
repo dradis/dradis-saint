@@ -1,14 +1,14 @@
 #[Port]#
-%port%
+%evidence.port%
 
 #[Severity]#
-%severity%
+%evidence.severity%
 
 #[Class]#
-%class%
+%evidence.class%
 
 #[cve]#
-%cve%
+%evidence.cve%
 
 #[CVSS Base Score]#
-%cvss_base_score%
+%evidence.cvss_base_score%
