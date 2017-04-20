@@ -2,5 +2,6 @@ require 'dradis/plugins'
 
 require 'dradis/plugins/saint'
 
-require 'saint/vulnerability'
+require 'saint/evidence'
 require 'saint/host'
+require 'saint/vulnerability'

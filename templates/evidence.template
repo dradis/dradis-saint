@@ -1,0 +1,14 @@
+#[Port]#
+%port%
+
+#[Severity]#
+%severity%
+
+#[Class]#
+%class%
+
+#[cve]#
+%cve%
+
+#[CVSS Base Score]#
+%cvss_base_score%

@@ -4,7 +4,8 @@ module Dradis
 
       class FieldProcessor < Dradis::Plugins::Upload::FieldProcessor
         def post_initialize(args={})
-          @saint_object = ::Saint::Vulnerability.new(data)
+          @saint_object =
+            "::Saint::#{data.name.capitalize}".constantize.new(data)
         end
 
         def value(args={})
