@@ -1,0 +1,8 @@
+<host>
+<hostname>192.168.150.163</hostname>
+<ipaddr>192.168.150.163</ipaddr>
+<hosttype>Linux 2.6.18 - 2.6.22</hosttype>
+<reds>2</reds>
+<yellows>0</yellows>
+<browns>8</browns>
+</host>

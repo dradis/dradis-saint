@@ -1,15 +1,11 @@
 module Saint
-  class Vulnerability
+  class Host
     def initialize(xml_node)
       @xml = xml_node
     end
 
     def supported_tags
-      [
-        :description, :hostname, :ipaddr, :hosttype, :scan_time, :status,
-        :severity, :cve, :cvss_base_score, :impact, :background, :problem,
-        :resolution, :reference, :vuln_details
-      ]
+      [ :ipaddr, :hosttype ]
     end
 
     def respond_to?(method, include_private=false)

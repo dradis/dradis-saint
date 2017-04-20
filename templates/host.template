@@ -1,0 +1,8 @@
+#[Title]#
+Saint Host Summary
+
+#[IP Address]#
+%ipaddr%
+
+#[Host Type]#
+%hosttype%
