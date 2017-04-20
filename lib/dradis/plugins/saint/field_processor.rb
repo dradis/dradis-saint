@@ -9,7 +9,6 @@ module Dradis
 
         def value(args={})
           field = args[:field]
-
           @saint_object.try(field)
         end
       end
