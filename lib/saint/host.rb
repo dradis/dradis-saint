@@ -1,7 +1,7 @@
 module Saint
   class Host < Base
     def supported_tags
-      [ :ipaddr, :hosttype ]
+      [ :hostname, :ipaddr, :hosttype ]
     end
 
     def process_field_value(method)

@@ -1,0 +1,45 @@
+<report>
+  <summary>
+  </summary>
+  <overview>
+    <hosts>
+      <host>
+        <hostname>Test Hostname</hostname>
+        <ipaddr>Test Ipaddr</ipaddr>
+        <hosttype>Test Hosttype</hosttype>
+      </host>
+    </hosts>
+    <vulnerabilities>
+      <host_info>
+        <hostname>Test Hostname</hostname>
+        <vulnerability>
+          <port>Test Port</port>
+          <severity>Test Severity</severity>
+          <description>Test Description</description>
+          <class>Test Vuln class</class>
+          <cve>Test Cve</cve>
+          <cvss_base_score>Test Cvss base score</cvss_base_score>
+        </vulnerability>
+      </host_info>
+    </vulnerabilities>
+  </overview>
+  <details>
+    <vulnerability>
+      <description>Test Description</description>
+      <hostname>Test Hostname</hostname>
+      <ipaddr>Test Ipaddr</ipaddr>
+      <hosttype>Test Hosttype</hosttype>
+      <scan_time>Test Scan time</scan_time>
+      <status>Test Status</status>
+      <severity>Test Severity</severity>
+      <cve>Test Cve</cve>
+      <cvss_base_score>Test Cvss base score</cvss_base_score>
+      <impact>Test Impact</impact>
+      <background>Test Background</background>
+      <problem>Test Problem</problem>
+      <resolution>Test Resolution</resolution>
+      <reference>Test Reference</reference>
+      <vuln_details></vuln_details>
+    </vulnerability>
+  </details>
+</report>
