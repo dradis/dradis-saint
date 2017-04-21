@@ -1,0 +1,30 @@
+PATH
+  remote: ../dradis-plugins
+  specs:
+    dradis-plugins (3.6.0)
+
+PATH
+  remote: .
+  specs:
+    dradis-saint (3.6.0)
+      dradis-plugins (~> 3.6)
+      nokogiri
+      rake (~> 10.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mini_portile2 (2.1.0)
+    nokogiri (1.7.1)
+      mini_portile2 (~> 2.1.0)
+    rake (10.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dradis-plugins!
+  dradis-saint!
+
+BUNDLED WITH
+   1.14.3
