@@ -72,7 +72,7 @@ module Dradis::Plugins::Saint
       host_node = @hosts[host_node_name]
 
       if !host_node
-        logger.error { "[ERROR] Cannot find an associated host for '#{evidence_desc}'." }
+        logger.error { "[WARNING] Cannot find an associated host for '#{evidence_desc}'." }
         return
       end
 
@@ -80,15 +80,18 @@ module Dradis::Plugins::Saint
       issue_plugin_id = Digest::SHA1.hexdigest(evidence_desc)
       issue = @issues[issue_plugin_id]
 
-      if !issue
-        logger.error { "[ERROR] Cannot find an associated vulnerability for '#{evidence_desc}'." }
-        return
-      end
-
-      # Create Dradis evidence
-      logger.info{ "\t\t => Creating new evidence..." }
       evidence_text = template_service.process_template(template: 'evidence', data: xml_evidence)
-      content_service.create_evidence(issue: issue, node: host_node, content: evidence_text)
+
+      if issue
+        # Create Dradis evidence
+        logger.info{ "\t\t => Creating new evidence..." }
+        content_service.create_evidence(issue: issue, node: host_node, content: evidence_text)
+      else
+        # Create Note in Host
+        logger.info{ "\t\t => Creating note for host node..." }
+        note_text = "#[Title]#\n#{evidence_desc}\n\n" + evidence_text
+        content_service.create_note(text: note_text, node: host_node)
+      end
     end
   end
 end
