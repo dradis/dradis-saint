@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.name        = "dradis-saint"
   s.version     = version
   s.authors     = ["Aaron Manaloto"]
-  s.email       = ["aaronpomanaloto@gmail.com"]
+  s.email       = ["aaron@securityroots.com"]
   s.homepage    = "http://dradisframework.org"
   s.summary     = "Saint upload add-on for Dradis Framework."
   s.description = "This add-on allows you to upload and parse reports from Saint."

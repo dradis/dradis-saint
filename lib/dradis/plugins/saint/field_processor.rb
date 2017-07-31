@@ -3,7 +3,10 @@ module Dradis
     module Saint
 
       class FieldProcessor < Dradis::Plugins::Upload::FieldProcessor
+        ALLOWED_DATA_NAMES = %w{evidence vulnerability host}
+
         def post_initialize(args={})
+          raise 'Unhandled data name!' unless ALLOWED_DATA_NAMES.includes?(data.name)
           @saint_object =
             "::Saint::#{data.name.capitalize}".constantize.new(data)
         end
@@ -19,7 +22,7 @@ module Dradis
             name = 'vuln_class'
           end
 
-          @saint_object.try(name)
+          @saint_object.try(name) || 'n/a'
         end
       end
     end

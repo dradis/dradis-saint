@@ -9,6 +9,13 @@ module Dradis::Plugins::Saint
       doc = Nokogiri::XML( file_content )
       logger.info{'Done.'}
 
+      if doc.xpath('/report').empty?
+        error = "No reports were detected in the uploaded file (/report). Ensure you uploaded a SAINT XML report."
+        logger.fatal{ error }
+        content_service.create_note text: error
+        return false
+      end
+
       doc.xpath('/report').each do |xml_report|
         logger.info {'Processing report...'}
 
@@ -37,32 +44,6 @@ module Dradis::Plugins::Saint
     end
 
     private
-    def process_vuln_issue(xml_vuln)
-      # Create Dradis Issue
-      logger.info{ "\t\t => Creating new issue..." }
-      plugin_id = Digest::SHA1.hexdigest(xml_vuln.xpath('./description').first.text) 
-
-      issue_text = template_service.process_template(template: 'vulnerability', data: xml_vuln)
-      issue = content_service.create_issue(text: issue_text, id: plugin_id)
-
-      # Save the issue for later to be linked to evidences
-      @issues[plugin_id] = issue
-    end
-
-    def process_host_item(xml_host)
-      # Create Dradis node
-      host_name = xml_host.xpath('./hostname').first.text || "Unnamed host"
-      host_node = content_service.create_node(label: host_name, type: :host)
-      logger.info{ "\tHost: #{host_name}" }
-
-      # Save the host for later to be linked to evidences
-      @hosts[host_name] = host_node
-
-      # Create note for the new node
-      host_note_text = template_service.process_template(template: 'host', data: xml_host)
-      content_service.create_note(text: host_note_text, node: host_node)
-    end
-
     def process_evidence(xml_evidence, host_node_name)
       # Associate the xml tag as evidence
       xml_evidence.name = 'evidence'
@@ -92,6 +73,32 @@ module Dradis::Plugins::Saint
         note_text = "#[Title]#\n#{evidence_desc}\n\n" + evidence_text
         content_service.create_note(text: note_text, node: host_node)
       end
+    end
+
+    def process_host_item(xml_host)
+      # Create Dradis node
+      host_name = xml_host.xpath('./hostname').first.text || "Unnamed host"
+      host_node = content_service.create_node(label: host_name, type: :host)
+      logger.info{ "\tHost: #{host_name}" }
+
+      # Save the host for later to be linked to evidences
+      @hosts[host_name] = host_node
+
+      # Create note for the new node
+      host_note_text = template_service.process_template(template: 'host', data: xml_host)
+      content_service.create_note(text: host_note_text, node: host_node)
+    end
+
+    def process_vuln_issue(xml_vuln)
+      # Create Dradis Issue
+      logger.info{ "\t\t => Creating new issue..." }
+      plugin_id = Digest::SHA1.hexdigest(xml_vuln.xpath('./description').first.text)
+
+      issue_text = template_service.process_template(template: 'vulnerability', data: xml_vuln)
+      issue = content_service.create_issue(text: issue_text, id: plugin_id)
+
+      # Save the issue for later to be linked to evidences
+      @issues[plugin_id] = issue
     end
   end
 end
