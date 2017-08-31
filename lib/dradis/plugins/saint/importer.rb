@@ -19,14 +19,14 @@ module Dradis::Plugins::Saint
       doc.xpath('/report').each do |xml_report|
         logger.info {'Processing report...'}
 
-        # Process <vulnerability> tags
-        xml_report.xpath('./details/vulnerability').each do |vuln|
-          process_vuln_issue(vuln)
-        end
-
         # Process <host> tags
         xml_report.xpath('./overview/hosts/host').each do |host|
           process_host_item(host)
+        end
+
+        # Process <vulnerability> tags
+        xml_report.xpath('./details/vulnerability').each do |vuln|
+          process_vuln_issue(vuln)
         end
 
         # Process <vulnerabilities> tag
@@ -44,6 +44,7 @@ module Dradis::Plugins::Saint
     end
 
     private
+
     def process_evidence(xml_evidence, host_node_name)
       # Associate the xml tag as evidence
       xml_evidence.name = 'evidence'
@@ -90,15 +91,34 @@ module Dradis::Plugins::Saint
     end
 
     def process_vuln_issue(xml_vuln)
-      # Create Dradis Issue
-      logger.info{ "\t\t => Creating new issue..." }
-      plugin_id = Digest::SHA1.hexdigest(xml_vuln.xpath('./description').first.text)
+      element_desc = xml_vuln.xpath('./description').first.text
 
-      issue_text = template_service.process_template(template: 'vulnerability', data: xml_vuln)
-      issue = content_service.create_issue(text: issue_text, id: plugin_id)
+      # Check if the vulnerability is a real issue or a service
+      if real_issue?(xml_vuln)
+        # Create Dradis Issue
+        logger.info{ "\t\t => Creating new issue..." }
+        plugin_id = Digest::SHA1.hexdigest(element_desc)
+
+        issue_text = template_service.process_template(template: 'vulnerability', data: xml_vuln)
+        issue = content_service.create_issue(text: issue_text, id: plugin_id)
+      else
+        # Create Note in Host
+        logger.info{ "\t\t => Creating note for host node..." }
+
+        note_details = xml_vuln.xpath('./vuln_details').first.text
+        note_text = "#[Title]#\n#{element_desc}\n\n" + note_details
+
+        host_name = xml_vuln.xpath('./hostname').first.text || "Unnamed host"
+        host_node = @hosts[host_name]
+        content_service.create_note(text: note_text, node: host_node)
+      end
 
       # Save the issue for later to be linked to evidences
       @issues[plugin_id] = issue
+    end
+
+    def real_issue?(xml_vuln)
+      xml_vuln.xpath('./severity').first.text != 'Service'
     end
   end
 end
