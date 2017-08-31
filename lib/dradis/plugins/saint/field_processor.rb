@@ -6,7 +6,7 @@ module Dradis
         ALLOWED_DATA_NAMES = %w{evidence vulnerability host}
 
         def post_initialize(args={})
-          raise 'Unhandled data name!' unless ALLOWED_DATA_NAMES.includes?(data.name)
+          raise 'Unhandled data name!' unless ALLOWED_DATA_NAMES.include?(data.name)
           @saint_object =
             "::Saint::#{data.name.capitalize}".constantize.new(data)
         end
