@@ -1,8 +1,0 @@
-#[Title]#
-Saint Host Summary
-
-#[IP Address]#
-%host.ipaddr%
-
-#[Host Type]#
-%host.hosttype%

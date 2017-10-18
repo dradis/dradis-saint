@@ -85,9 +85,15 @@ module Dradis::Plugins::Saint
       # Save the host for later to be linked to evidences
       @hosts[host_name] = host_node
 
-      # Create note for the new node
-      host_note_text = template_service.process_template(template: 'host', data: xml_host)
-      content_service.create_note(text: host_note_text, node: host_node)
+      # Add properties to the node
+      if xml_host.xpath('./ipaddr').first
+        host_node.set_property(:ip, xml_host.xpath('./ipaddr').first.text)
+      end
+      if xml_host.xpath('./hosttype').first
+        host_node.set_property(:os, xml_host.xpath('./hosttype').first.text)
+      end
+      host_node.set_property(:hostname, host_name)
+      host_node.save
     end
 
     def process_vuln_issue(xml_vuln)
