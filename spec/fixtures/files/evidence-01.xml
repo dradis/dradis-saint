@@ -1,0 +1,8 @@
+<evidence>
+<port>Test Port</port>
+<severity>Test Severity</severity>
+<description>Test Description</description>
+<class>Test Vuln class</class>
+<cve>Test Cve</cve>
+<cvss_base_score>Test Cvss base score</cvss_base_score>
+</evidence>

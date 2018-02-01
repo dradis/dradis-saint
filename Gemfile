@@ -12,3 +12,9 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+
+if Dir.exists?('../dradis-plugins')
+  gem 'dradis-plugins', path: '../dradis-plugins'
+else
+  gem 'dradis-plugins', github: 'dradis/dradis-plugins'
+end

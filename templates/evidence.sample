@@ -1,0 +1,8 @@
+<evidence>
+<port>587/tcp</port>
+<severity>potential</severity>
+<description>server is susceptible to BEAST attack</description>
+<class>Other</class>
+<cve>CVE-2011-3389</cve>
+<cvss_base_score>4.3</cvss_base_score>
+</evidence>

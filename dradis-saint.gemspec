@@ -1,20 +1,28 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "dradis/saint/version"
+require "dradis/plugins/saint/version"
+version = Dradis::Plugins::Saint::VERSION::STRING
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
+  s.platform    = Gem::Platform::RUBY
   s.name        = "dradis-saint"
-  s.version     = Dradis::Saint::VERSION
+  s.version     = version
   s.authors     = ["Aaron Manaloto"]
-  s.email       = ["aaronpomanaloto@gmail.com"]
+  s.email       = ["aaron@securityroots.com"]
   s.homepage    = "http://dradisframework.org"
+  s.summary     = "Saint upload add-on for Dradis Framework."
+  s.description = "This add-on allows you to upload and parse reports from Saint."
   s.license     = "GPL-2"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
+  s.files = `git ls-files`.split($\)
 
-  s.add_dependency "rails", "~> 5.0.2"
+  s.add_dependency 'dradis-plugins', '~> 3.8'
+  s.add_dependency 'nokogiri'
+  s.add_dependency 'rake', '~> 12.0'
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'bundler', '~> 1.6'
+  s.add_dependency 'combustion', '~> 0.6.0'
+  s.add_dependency 'rspec-rails'
 end
