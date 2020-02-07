@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'dradis-plugins', '~> 3.8'
   s.add_dependency 'nokogiri'
-  s.add_dependency 'rake', '~> 12.0'
+  s.add_dependency 'rake', '~> 13.0'
 
   s.add_development_dependency 'bundler', '~> 1.6'
   s.add_dependency 'combustion', '~> 0.6.0'
