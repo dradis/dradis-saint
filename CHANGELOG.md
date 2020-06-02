@@ -1,3 +1,7 @@
+## Dradis Framework 3.17 (May, 2020) ##
+
+*  Upgrade rake version.
+
 ## Dradis Framework 3.16 (February, 2020) ##
 
 *  Upgrade rake version.
