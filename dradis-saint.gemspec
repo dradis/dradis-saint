@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.files = `git ls-files`.split($\)
 
-  s.add_dependency 'dradis-plugins', '>= 3.0.0'
+  s.add_dependency 'dradis-plugins', '~> 4.0.0'
   s.add_dependency 'nokogiri'
   s.add_dependency 'rake', '~> 13.0'
 
