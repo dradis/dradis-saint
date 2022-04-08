@@ -1,5 +1,9 @@
 module Dradis::Plugins::Saint
   class Importer < Dradis::Plugins::Upload::Importer
+    def self.templates
+      { evidence: 'evidence', issue: 'vulnerability' }
+    end
+
     def import(params={})
       @issues = {}
       @hosts = {}
