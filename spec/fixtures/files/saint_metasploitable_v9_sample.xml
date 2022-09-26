@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+<scan_information>
+	<title>Metasploitable</title>
+	<report_time>Wed Mar 22 13:28:09 2017</report_time>
+	<scan_time>Wed Mar 22 13:22:35 2017</scan_time>
+	<scan_level>heavy vulnerability</scan_level>
+	<scanner_version>8.14.25</scanner_version>
+</scan_information>
+<summary>
+	<vulnerabilities_by_severity bar="bar_vulns.png" pie="pie_vulns.png">
+		<reds>2</reds>
+		<yellows>0</yellows>
+		<browns>8</browns>
+		<greens>5</greens>
+	</vulnerabilities_by_severity>
+	<hosts_by_severity bar="bar_hosts.png" pie="pie_hosts.png">
+		<red_hosts>1</red_hosts>
+		<yellow_hosts>0</yellow_hosts>
+		<brown_hosts>0</brown_hosts>
+		<green_hosts>0</green_hosts>
+		<black_hosts>0</black_hosts>
+	</hosts_by_severity>
+	<vulnerabilities_by_class bar="bar_classes.png" pie="pie_classes.png">
+		<web>0</web>
+		<mail>0</mail>
+		<file_transfer>0</file_transfer>
+		<login_shell>0</login_shell>
+		<print_services>0</print_services>
+		<rpc>0</rpc>
+		<dns>0</dns>
+		<databases>0</databases>
+		<networking_snmp>0</networking_snmp>
+		<windows_os>0</windows_os>
+		<passwords>0</passwords>
+		<other>8</other>
+	</vulnerabilities_by_class>
+	<top_vulns bar="bar_topvulns.png">
+		<top_vuln>
+			<rank>1</rank>
+			<vulnerability>server is susceptible to BEAST attack</vulnerability>
+			<no_of_targets>3</no_of_targets>
+		</top_vuln>
+		<top_vuln>
+			<rank>2</rank>
+			<vulnerability>SSL/TLS server supports short block sizes (SWEET32 attack)</vulnerability>
+			<no_of_targets>3</no_of_targets>
+		</top_vuln>
+		<top_vuln>
+			<rank>3</rank>
+			<vulnerability>SSL/TLS server supports RC4 ciphers</vulnerability>
+			<no_of_targets>2</no_of_targets>
+		</top_vuln>
+	</top_vulns>
+	<top_services bar="bar_topservices.png">
+		<top_service>
+			<rank>1</rank>
+			<service>urd (465/TCP)</service>
+			<no_of_targets>1</no_of_targets>
+		</top_service>
+		<top_service>
+			<rank>2</rank>
+			<service>587/TCP</service>
+			<no_of_targets>1</no_of_targets>
+		</top_service>
+		<top_service>
+			<rank>3</rank>
+			<service>SMTP</service>
+			<no_of_targets>1</no_of_targets>
+		</top_service>
+		<top_service>
+			<rank>4</rank>
+			<service>WWW</service>
+			<no_of_targets>1</no_of_targets>
+		</top_service>
+		<top_service>
+			<rank>5</rank>
+			<service>WWW (Secure)</service>
+			<no_of_targets>1</no_of_targets>
+		</top_service>
+	</top_services>
+</summary>
+<overview>
+	<hosts>
+		<host>
+			<hostname>192.168.150.163</hostname>
+			<ipaddr>192.168.150.163</ipaddr>
+			<hosttype>Linux 2.6.18 - 2.6.22</hosttype>
+			<reds>2</reds>
+			<yellows>0</yellows>
+			<browns>8</browns>
+		</host>
+	</hosts>
+	<vulnerabilities_summary>
+		<vulnerability>
+			<description>server is susceptible to BEAST attack</description>
+			<no_of_targets>3</no_of_targets>
+		</vulnerability>
+		<vulnerability>
+			<description>SSL/TLS server supports short block sizes (SWEET32 attack)</description>
+			<no_of_targets>3</no_of_targets>
+		</vulnerability>
+		<vulnerability>
+			<description>SSL/TLS server supports RC4 ciphers</description>
+			<no_of_targets>2</no_of_targets>
+		</vulnerability>
+	</vulnerabilities_summary>
+	<vulnerabilities>
+		<host_info>
+			<hostname>192.168.150.163</hostname>
+			<vulnerability>
+				<port>587/tcp</port>
+				<severity>potential</severity>
+				<description>server is susceptible to BEAST attack</description>
+				<class>Other</class>
+				<cve>CVE-2011-3389</cve>
+				<cvss_base_score>4.3</cvss_base_score>
+			</vulnerability>
+			<vulnerability>
+				<port>443/tcp</port>
+				<severity>potential</severity>
+				<description>server is susceptible to BEAST attack</description>
+				<class>Other</class>
+				<cve>CVE-2011-3389</cve>
+				<cvss_base_score>4.3</cvss_base_score>
+			</vulnerability>
+			<vulnerability>
+				<port>25/tcp</port>
+				<severity>potential</severity>
+				<description>server is susceptible to BEAST attack</description>
+				<class>Other</class>
+				<cve>CVE-2011-3389</cve>
+				<cvss_base_score>4.3</cvss_base_score>
+			</vulnerability>
+			<vulnerability>
+				<port>25/tcp</port>
+				<severity>potential</severity>
+				<description>SSL/TLS server supports RC4 ciphers</description>
+				<class>Other</class>
+				<cve>CVE-2013-2566 CVE-2015-2808</cve>
+				<cvss_base_score>4.3</cvss_base_score>
+			</vulnerability>
+			<vulnerability>
+				<port>587/tcp</port>
+				<severity>potential</severity>
+				<description>SSL/TLS server supports RC4 ciphers</description>
+				<class>Other</class>
+				<cve>CVE-2013-2566 CVE-2015-2808</cve>
+				<cvss_base_score>4.3</cvss_base_score>
+			</vulnerability>
+			<vulnerability>
+				<port>25/tcp</port>
+				<severity>potential</severity>
+				<description>SSL/TLS server supports short block sizes (SWEET32 attack)</description>
+				<class>Other</class>
+				<cve>CVE-2016-2183</cve>
+				<cvss_base_score>5.0</cvss_base_score>
+			</vulnerability>
+			<vulnerability>
+				<port>443/tcp</port>
+				<severity>potential</severity>
+				<description>SSL/TLS server supports short block sizes (SWEET32 attack)</description>
+				<class>Other</class>
+				<cve>CVE-2016-2183</cve>
+				<cvss_base_score>5.0</cvss_base_score>
+			</vulnerability>
+			<vulnerability>
+				<port>587/tcp</port>
+				<severity>potential</severity>
+				<description>SSL/TLS server supports short block sizes (SWEET32 attack)</description>
+				<class>Other</class>
+				<cve>CVE-2016-2183</cve>
+				<cvss_base_score>5.0</cvss_base_score>
+			</vulnerability>
+			<vulnerability>
+				<port>587/tcp</port>
+				<severity>service</severity>
+				<description>587/TCP</description>
+			</vulnerability>
+			<vulnerability>
+				<port>25/tcp</port>
+				<severity>service</severity>
+				<description>SMTP</description>
+			</vulnerability>
+			<vulnerability>
+				<port>80/tcp</port>
+				<severity>service</severity>
+				<description>WWW</description>
+			</vulnerability>
+			<vulnerability>
+				<port>443/tcp</port>
+				<severity>service</severity>
+				<description>WWW (Secure)</description>
+			</vulnerability>
+			<vulnerability>
+				<port>465/tcp</port>
+				<severity>service</severity>
+				<description>urd (465/TCP)</description>
+			</vulnerability>
+			<vulnerability>
+				<port>80/tcp</port>
+				<severity>info</severity>
+				<description>Web Directory: /</description>
+			</vulnerability>
+			<vulnerability>
+				<port>443/tcp</port>
+				<severity>info</severity>
+				<description>Web Directory: /</description>
+			</vulnerability>
+			<vulnerability>
+				<port>80/tcp</port>
+				<severity>info</severity>
+				<description>Web Directory: /cgi-bin/</description>
+			</vulnerability>
+			<vulnerability>
+				<port>80/tcp</port>
+				<severity>info</severity>
+				<description>Web Directory: /scripts/</description>
+			</vulnerability>
+		</host_info>
+	</vulnerabilities>
+</overview>
+<details>
+	<host_info>
+		<hostname>10.0.0.9</hostname>
+		<ipaddr>10.0.0.9</ipaddr>
+		<scan_time>Nov 06 13:52:12 2021</scan_time>
+		<vulnerability>
+			<description>server is susceptible to BEAST attack</description>
+			<hostname>192.168.150.163</hostname>
+			<ipaddr>192.168.150.163</ipaddr>
+			<hosttype>Linux 2.6.18 - 2.6.22</hosttype>
+			<scan_time>Mar 22 13:22:35 2017</scan_time>
+			<status>new</status>
+			<severity>Potential Problem</severity>
+			<cve>CVE-2011-3389</cve>
+			<cvss_base_score>4.3</cvss_base_score>
+			<impact>
+				A remote attacker with the ability to sniff network traffic could decrypt an
+				encrypted session.
+			</impact>
+			<background>
+				Cipher Block Chaining (CBC) is an encryption mode of operation where the decryption of each block of encrypted text depends on all of the preceding blocks.  CBC requires an Initialization Vector, a block of bits which starts the encryption and ensures that the encrypted text is unique. The SSLv3 and TLS 1.0 protocols may encrypt data using Cipher Block Chaining
+				ciphers that use chained initialization vectors.
+			</background>
+			<problem>
+				SSL/TLS CBC Initialization Vector Prediction
+				10/28/11
+				CVE 2011-3389
+				The Browser Exploit against SSL/TLS (BEAST) may allow an attacker to perform
+				a man-in-the-middle attack to obtain plain-text HTTP headers by conducting a
+				blockwise chosen-boundary attack (BCBA) against an HTTPS session.
+				This attack is an extension of two previously
+				disclosed attacks against SSL. The first of these attacks was detailed by
+				Gregory Bard in May 2004 (The
+				Vulnerability of SSL to Chosen Plaintext Attack). This research showed
+				that cipher block chaining mode used by SSL is vulnerable to decryption in
+				cases where the attacker can control part of the plaintext. This attack proved
+				to be difficult to implement against HTTPS sessions due to the attackers'
+				inability to control the contents. This attack method was extended to support
+				TLS 1.0 and improved in April 2006 (A
+				Challenging but Feasible Blockwise-Adaptive Chosen-Plaintext Attack on
+				SSL).
+				In September 2011, Juliano Rizzo and Thai Duong presented a modern iteration
+				of this attack that utilized Java or HTML5 WebSockets as an entry-point for
+				attackers. Using this method, attackers could host a malicious website that,
+				when visited by victims, uses Java or WebSockets to establish a connection to
+				any secured 3rd party website of their choice. If the user has an active
+				session to the targeted 3rd party site, any cookies he or she has saved will also
+				be sent. Since the attacker is initiating this request, he can control the
+				length of the requested resource, allowing him to position the cookie on a
+				block boundary. The attacker also knows part of the cleartext. If this can be
+				done in a man-in-the-middle scenario, the attacker will be able to intercept
+				this encrypted request and decrypt it off-line to obtain the cookie. If the
+				cookie contains an authentication token, this may result in account theft.
+				TLS 1.1 and later have been improved to use an explicit initialization vector
+				strategy, rendering them immune to this type of attack.
+			</problem>
+			<resolution>
+				Most browser vendors have released updates which prevent this attack, but some affected browsers still remain at this time, so it is still advisable also to fix the problem on the server side. SSLv3 and TLS 1.0 should be disabled on the server as follows:
+				Apache: Set the following directive in the Apache configuration file. (The -TLSv1 argument requires Apache 2.2.24 or higher or an update from your Linux vendor.)
+				SSLProtocol all -SSLv2 -SSLv3 -TLSv1
+				IIS: See [http://support.microsoft.com/kb/245030] KB245030 and [https://support.microsoft.com/en-us/kb/187498] KB187498.
+				Note that disabling SSLv3 and TLS 1.0 entirely on the server may affect the usability of the web site, as some web browsers may not yet support TLS 1.1.
+			</resolution>
+			<reference>
+				Thai Duong wrote a detailed [http://vnhacker.blogspot.com/2011/09/beast.html] blog post about this attack, including a video demonstration.
+				Adam Langley wrote a helpful [http://www.imperialviolet.org/2011/09/23/chromeandbeast.html] blog post that helps highlight concerns for both browser vendors and website hosts.
+				Rob VanderBrink of SANS Internet Storm Center [http://isc.sans.edu/diary.html?storyid=11629] posted a blog update detailing TLS 1.1/1.2 support in many common browsers as of September, 2011.
+				Eric Rescorla wrote a [http://www.educatedguesswork.org/2011/09/security_impact_of_the_rizzodu.html] detailed blog post explaining how the attack works in detail and analyzing the security impact of this vulnerability.
+			</reference>
+			<vuln_details>
+				Service: 587:TCP
+				Server accepted TLS 1.0 CBC cipher: TLS_RSA_WITH_3DES_EDE_CBC_SHA		</vuln_details>
+		</vulnerability>
+	</host_info>
+</details>
+</report>

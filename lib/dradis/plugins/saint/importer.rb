@@ -29,7 +29,7 @@ module Dradis::Plugins::Saint
         end
 
         # Process <vulnerability> tags
-        xml_report.xpath('./details/vulnerability').each do |vuln|
+        xml_report.xpath('./details/vulnerability|./details/host_info/vulnerability').each do |vuln|
           process_vuln_issue(vuln)
         end
 
