@@ -33,6 +33,11 @@ module Dradis::Plugins::Saint
           process_vuln_issue(vuln)
         end
 
+        # Process Saint v9 <vulnerability> tags
+        xml_report.xpath('./details/host_info/vulnerability').each do |vuln|
+          process_vuln_issue(vuln)
+        end
+
         # Process <vulnerabilities> tag
         xml_report.xpath('./overview/vulnerabilities/host_info').each do |xml_host_info|
           host_name = xml_host_info.xpath('./hostname').first.text

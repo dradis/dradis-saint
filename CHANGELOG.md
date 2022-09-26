@@ -1,3 +1,6 @@
+[v#.#.#] ([month] [YYYY])
+  - Add support for Saint v9 output
+
 v4.5.0 (August 2022)
   - No changes
 
