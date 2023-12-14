@@ -7,12 +7,12 @@ The add-on requires Dradis 3.0 or higher.
 
 ## More information
 
-See the Dradis Framework's [README.md](https://github.com/dradis/dradis-ce/blob/master/README.md)
+See the Dradis Framework's [README.md](https://github.com/dradis/dradis-ce/blob/develop/README.md)
 
 
 ## Contributing
 
-See the Dradis Framework's [CONTRIBUTING.md](https://github.com/dradis/dradis-ce/blob/master/CONTRIBUTING.md)
+See the Dradis Framework's [CONTRIBUTING.md](https://github.com/dradis/dradis-ce/blob/develop/CONTRIBUTING.md)
 
 
 ## License
