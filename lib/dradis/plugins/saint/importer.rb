@@ -66,7 +66,7 @@ module Dradis::Plugins::Saint
       issue_plugin_id = Digest::SHA1.hexdigest(evidence_desc)
       issue = @issues[issue_plugin_id]
 
-      evidence_text = template_service.process_template(template: 'evidence', data: xml_evidence)
+      evidence_text = mapping_service.apply_mapping(source: 'evidence', data: xml_evidence)
 
       if issue
         # Create Dradis evidence
@@ -109,7 +109,7 @@ module Dradis::Plugins::Saint
         logger.info{ "\t\t => Creating new issue..." }
         plugin_id = Digest::SHA1.hexdigest(element_desc)
 
-        issue_text = template_service.process_template(template: 'vulnerability', data: xml_vuln)
+        issue_text = mapping_service.apply_mapping(source: 'vulnerability', data: xml_vuln)
         issue = content_service.create_issue(text: issue_text, id: plugin_id)
       else
         # Create Note in Host
