@@ -1,4 +1,4 @@
-v4.17.0 (Month 2025)
+v4.17.0 (July 2025)
   - Move dev gems to the dev dependency
 
 v4.16.0 (May 2025)
